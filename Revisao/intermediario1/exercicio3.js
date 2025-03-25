@@ -1,16 +1,28 @@
 // 3. **Números Primos**: Verifique se um número informado pelo usuário é primo.
 
-var num = 4
+var num = 10;
+let primo = true;
 
-// para ser primo ele não pode ser:
- // maior que 2 e divisivel por 2
- // divisivel por outro npumero além de si mesmo e 1
- //outroNumero que não seja o um e o próprio número
- const outroNumero = !num && outroNumero> 1
- let min = num + 1
- 
+if (num < 2) {
+    primo = false;
+} 
 
- // se o resto do numero dividido por outroNumero não for 0 é primo
- var primo = (num % outroNumero != 0 ) ? true : false
+else if (num === 2) {
+    primo = true;
+} 
 
- console.log(primo)
+else if (num % 2 === 0) {
+    primo = false;
+} 
+// Testa apenas os ímpares a partir do 3 até a raiz quadrada de num
+else {
+    for (let i = 3; i <= Math.sqrt(num); i += 2) {
+        if (num % i === 0) {
+            primo = false;
+            break; // Interrompe o loop ao encontrar um divisor
+        }
+    }
+}
+
+console.log(primo);
+
